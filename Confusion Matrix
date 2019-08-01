@@ -1,0 +1,36 @@
+library(caret)
+library(e1071)
+
+predictions <- unlist(predict@predictions)
+labels <- unlist(predict@labels)
+pred.class <- as.integer(predictions > 0.5)
+print(cfm <- table(pred.class, labels))
+confusionMatrix(cfm, positive = "1")
+
+Confusion Matrix and Statistics
+
+          labels
+pred.class   0   1
+         0 419 196
+         1 143 316
+                                          
+               Accuracy : 0.6844          
+                 95% CI : (0.6556, 0.7121)
+    No Information Rate : 0.5233          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.3644          
+                                          
+ Mcnemar's Test P-Value : 0.004739        
+                                          
+            Sensitivity : 0.6172          
+            Specificity : 0.7456          
+         Pos Pred Value : 0.6885          
+         Neg Pred Value : 0.6813          
+             Prevalence : 0.4767          
+         Detection Rate : 0.2942          
+   Detection Prevalence : 0.4274          
+      Balanced Accuracy : 0.6814          
+                                          
+       'Positive' Class : 1               
+                                 
