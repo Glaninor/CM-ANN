@@ -29,8 +29,8 @@ keras.test.labels <- as.matrix(test[,2])
 model <- keras_model_sequential() 
 
 model %>% 
-  layer_dense(units = 64, activation = 'relu', input_shape = c(1276)) %>%
-  layer_dense(units = 32, activation = 'relu') %>%
+  layer_dense(units = 256, activation = 'relu', input_shape = c(1276)) %>%
+  layer_dropout(rate = 0.1) %>% 
   layer_dense(units = 1, activation = 'sigmoid') %>% 
   compile( 
     optimizer = optimizer_rmsprop(),
@@ -38,7 +38,7 @@ model %>%
     metrics = c('accuracy')
   )
 
-history <- model %>% fit(keras.train,keras.train.labels, epochs=30, batch_size=64)
+history <- model %>% fit(keras.train,keras.train.labels, epochs=30, batch_size=256)
 model %>% evaluate(keras.test,keras.test.labels)
 plot(history)
 
