@@ -24,3 +24,5 @@ model %>%
 model %>% fit(keras.train,keras.train.labels, epochs=20, batch_size=32)
 score <- model %>% evaluate(keras.test,keras.test.labels, batch_size =32)
 
+score <- model %>% evaluate(keras.test,keras.test.labels, batch_size =32)
+1074/1074 [==============================] - 0s 90us/sample - loss: 5032.7191 - binary_accuracy: 0.6006
