@@ -39,8 +39,6 @@ model %>%
   )
 
 history <- model %>% fit(keras.train,keras.train.labels, epochs=30, batch_size=256)
-model %>% evaluate(keras.test,keras.test.labels)
-plot(history)
 
 Epoch 1/30
 2505/2505 [==============================] - 0s 108us/sample - loss: 740547.0594 - acc: 0.5138
